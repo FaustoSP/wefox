@@ -1,6 +1,6 @@
 import "antd/dist/antd.min.css";
 import "./App.css";
-import Post from "./components/Post";
+import Post from "./components/DataTable";
 
 function App() {
   return (
