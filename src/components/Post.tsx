@@ -17,6 +17,7 @@ function Post({ post, setIsLoading }: any) {
   const [newContent, setNewContent] = useState<string>("");
   const [newTitle, setNewTitle] = useState<string>("");
 
+  // This two state variables bind the forms. See editPost.
   const [formTitle] = Form.useForm();
   const [formContent] = Form.useForm();
 
@@ -31,6 +32,11 @@ function Post({ post, setIsLoading }: any) {
     });
   };
 
+  // This code might look weird. The two inputs used to edit the title and content, respectively, and they
+  // need validation, which is why they are wrapped around a Form component. The problem is, this are separate
+  // forms with no button to submit, so there is no way to stop a submit with an incorrect validation.
+  // The solution is to bind each one to a state variable and manually trigger the validation. If it resolves,
+  // the new post is instantiated and the PUT request is sent.
   const editPost = (id: number) => {
     formTitle.validateFields().then(() => {
       formContent.validateFields().then(() => {

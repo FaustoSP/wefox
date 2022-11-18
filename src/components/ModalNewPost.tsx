@@ -110,6 +110,7 @@ function ModalNewPost({ setIsLoading }: any) {
           <Button onClick={() => setModalIsVisible(false)}>Cancel</Button>,
         ]}
       >
+        {/* Mockup component */}
         <Upload
           name="avatar"
           listType="picture-card"
